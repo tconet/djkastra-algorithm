@@ -20,6 +20,12 @@ public class City {
         this.isOpen = false;
     }
 
+    /**
+     * <p>
+     * Atualiza a melhor estimativa, e indica de qual cidade veio.
+     * @param from Cidade de onde veio
+     * @param estimate Valor da menor estimativa
+     */
     public void updateBetterEstimate(City from, Integer estimate) {
         this.from = from;
         this.setEstimate(estimate);
