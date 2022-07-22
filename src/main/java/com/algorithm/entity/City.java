@@ -1,23 +1,46 @@
 package com.algorithm.entity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
+import java.util.ArrayList;
 import java.util.Objects;
 
+import lombok.Data;
+
 @Data
-@AllArgsConstructor
 public class City {
 
     private String name;
-    private Integer estimate;
+    private Integer estimate = 0;
     private boolean isOpen;
     private City from;
+    private ArrayList<Route> routes = new ArrayList<Route>();
+
+    public City(String name) {
+        this.name = name;
+    }
 
     /**
      * Fecha a cidade
      */
     public void close() {
         this.isOpen = false;
+    }
+
+    public Integer getPath(String to) {
+
+        for (Route route: routes) {
+            if ( route.getTo().equals(to)) {
+                return route.getDistance();
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * <p>
+     * Add a route
+     * @param route The route to be added.
+     */
+    public void populateRoutes(Route route){
+        this.routes.add(route);
     }
 
     /**

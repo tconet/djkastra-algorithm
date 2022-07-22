@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 public class Route {
 
     private Integer distance;
-    private City from;
-    private City to;
+    private String from;
+    private String to;
 
 }
